@@ -148,7 +148,7 @@ export default function Home({ lang = 'en' }) {
           <div className="flex flex-wrap gap-3">
             <a href="mailto:orcuneness@hotmail.com" className="btn-primary">{t.contact.email}</a>
             <a href="https://github.com/orcunenes" target="_blank" rel="noreferrer" className="btn-outline">{t.contact.github}</a>
-            <a href="https://linkedin.com/in/orcunenes" target="_blank" rel="noreferrer" className="btn-outline">{t.contact.linkedin}</a>
+            <a href="https://www.linkedin.com/in/orçun-enes-öztürk-b51637180" target="_blank" rel="noreferrer" className="btn-outline">{t.contact.linkedin}</a>
           </div>
         </div>
       </section>
