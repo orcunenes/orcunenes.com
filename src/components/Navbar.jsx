@@ -1,7 +1,8 @@
 import { Link, NavLink } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle.jsx'
+import LanguageToggle from './LanguageToggle.jsx'
 
-export default function Navbar() {
+export default function Navbar({ lang, onLanguageChange }) {
   const navLinkClass = ({ isActive }) =>
     `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
       isActive ? 'text-violet-700 bg-violet-100' : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:text-zinc-100 dark:hover:bg-zinc-800'
@@ -20,12 +21,23 @@ export default function Navbar() {
       <div className="mx-auto max-w-6xl px-4">
         <nav className="flex items-center gap-2 py-3">
           <Link to="/" className="font-extrabold tracking-tight text-xl mr-2">orcunenes</Link>
-          <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className={navLinkClass({ isActive: false })}>About</a>
-          <a href="#skills" onClick={(e) => scrollToSection(e, 'skills')} className={navLinkClass({ isActive: false })}>Skills</a>
-          <a href="#experience" onClick={(e) => scrollToSection(e, 'experience')} className={navLinkClass({ isActive: false })}>Experience</a>
-          <a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')} className={navLinkClass({ isActive: false })}>Portfolio</a>
+          <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className={navLinkClass({ isActive: false })}>
+            {lang === 'tr' ? 'Hakkımda' : 'About'}
+          </a>
+          <a href="#skills" onClick={(e) => scrollToSection(e, 'skills')} className={navLinkClass({ isActive: false })}>
+            {lang === 'tr' ? 'Yetenekler' : 'Skills'}
+          </a>
+          <a href="#experience" onClick={(e) => scrollToSection(e, 'experience')} className={navLinkClass({ isActive: false })}>
+            {lang === 'tr' ? 'Deneyim' : 'Experience'}
+          </a>
+          <a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')} className={navLinkClass({ isActive: false })}>
+            {lang === 'tr' ? 'Portfolyo' : 'Portfolio'}
+          </a>
           <div className="ml-auto flex items-center gap-2">
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className={navLinkClass({ isActive: false })}>Contact</a>
+            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className={navLinkClass({ isActive: false })}>
+              {lang === 'tr' ? 'İletişim' : 'Contact'}
+            </a>
+            <LanguageToggle onLanguageChange={onLanguageChange} />
             <ThemeToggle />
           </div>
         </nav>

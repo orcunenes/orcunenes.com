@@ -1,4 +1,5 @@
 import './App.css'
+import { useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Projects from './pages/Projects.jsx'
@@ -13,12 +14,14 @@ import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 
 function App() {
+  const [lang, setLang] = useState(localStorage.getItem('language') || 'en')
+
   return (
     <div className="app-container">
-      <Navbar />
+      <Navbar lang={lang} onLanguageChange={setLang} />
       <main className="pb-12">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home lang={lang} />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/about" element={<About />} />
